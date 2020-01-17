@@ -5,20 +5,51 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Plan My Trip</title>
+    <link rel="stylesheet" href="https://unpkg.com/@coreui/coreui/dist/css/coreui.min.css">
+    <link href="https://fonts.googleapis.com/css?family=Nanum+Pen+Script|Oleo+Script+Swash+Caps&display=swap" rel="stylesheet">
+
+
+    <link href="main.css" type="stylesheet">
     <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <script src="http://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js" integrity="sha384-uefMccjFJAIv6A+rW+L4AHf99KvxDjWSu1z9VI8SKNVmz4sk7buKt/6v9KI65qnm" crossorigin="anonymous"></script>
+    <script src="https://unpkg.com/@coreui/coreui/dist/js/coreui.min.js"></script>
     
 </head>
 <body>
-    <div id="app">
+    <!-- <div id="app">
         {{ message }}
         <button v-on:click="addLeg">Add Leg</button>
         <ul>
             <todo-item
-                v-for="i in tripLegs"
-                v-bind:id="i"
+            v-for="i in tripLegs"
+            v-bind:leg="i"
+            v-bind:key="i.id"
             ></todo-item>
         </ul>
-    </div>
+    </div> -->
+    
+    <body class="app sidebar-show aside-menu-show" id="app">
+        <header class="app-header navbar" style="height: auto;">
+            <!-- Header content here -->
+            <div id="logo" style="font-family: 'Nanum Pen Script', cursive;font-size: 69px;margin-left: 25px;">Plan My Trip</div>
+        </header>
+        <div class="app-body">
+            <div class="sidebar">
+                <!-- Sidebar content here -->
+            </div>
+            <main class="main">
+                <!-- Main content here -->
+            </main>
+            <aside class="aside-menu">
+                <!-- Aside menu content here -->
+            </aside>
+        </div>
+        <footer class="app-footer">
+            <!-- Footer content here -->
+        </footer>
+    </body>
     
     <script src="app.js"></script>
 </body>
