@@ -1,9 +1,17 @@
 Vue.component('todo-item', {
     props: ['leg'],
     template: `
-    <div class="input-group mb-3">
-    <input v-model='leg.startingPoint' type="text" class="form-control" placeholder="Username" aria-label="Username" aria-describedby="basic-addon1">
+    <form class="form-inline">
+    <div class="form-group mb-2">
+    <label for="staticEmail2" class="sr-only">Email</label>
+    <input type="text" class="form-control" v-model="leg.startingPoint" id="startingPoint" value="email@example.com">
     </div>
+    <div class="form-group mx-sm-3 mb-2">
+    <label for="inputPassword2" class="sr-only">Password</label>
+    <input type="text" class="form-control" v-model="leg.destination" id="destination" placeholder="Password">
+    </div>
+    <button type="submit" class="btn btn-primary mb-2">Confirm identity</button>
+    </form>
     `
 });
 
