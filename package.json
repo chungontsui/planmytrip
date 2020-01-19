@@ -1,0 +1,23 @@
+{
+  "name": "planmytrip",
+  "version": "1.0.0",
+  "description": "",
+  "main": "app.js",
+  "dependencies": {
+    "@fortawesome/fontawesome-free": "^5.12.0"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/chungontsui/planmytrip.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/chungontsui/planmytrip/issues"
+  },
+  "homepage": "https://github.com/chungontsui/planmytrip#readme"
+}
