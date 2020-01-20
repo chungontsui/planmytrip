@@ -10,7 +10,9 @@ Colour Palette
 #f6f6f6  Light Grey
 
 */
-
+body{
+    background-color: #fdffdc;
+}
 span#logo{
     font-family: 'Nanum Pen Script', cursive;
 }

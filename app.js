@@ -4,7 +4,7 @@ Vue.component('todo-item', {
     <form class="form-inline">
     <div class="form-group mb-2">
     In&nbsp;
-    <select class='form-control' v-model='leg.whenToTravel' v-on:change="$emit('data-change', $event.target.checked)">
+    <select class='form-control' v-model='leg.whenToTravel' v-on:change="$emit('data-change')">
     <option value='0'>Same day</option>
     <option value='1'>Next day</option>
     <option value='2'>1 day</option>
@@ -26,7 +26,7 @@ Vue.component('todo-item', {
     <input type="number" class="form-control" v-model="leg.timeToGetThereInMin" id="timeToGetThereInMin" placeholder="">
     </div>
     <div class="form-group mx-sm-3 mb-2">
-    <select class="form-control" v-model='leg.beginTravel'>
+    <select class="form-control" v-model='leg.beginTravel' v-on:change="$emit('data-change')">
     <option value='1'>01:00</option>
     <option value='2'>02:00</option>
     <option value='3'>03:00</option>
@@ -90,20 +90,32 @@ var app = new Vue({
             let _stayDuration = 0;
             for(var i = 0; i < this.tripLegs.length; i++){
                 _stayDuration = 0;
-                if(this.tripLegs[i].whenToTravel && this.tripLegs[i].whenToTravel !== undefined){
+                //if(this.tripLegs[i].whenToTravel && this.tripLegs[i].whenToTravel !== undefined){
                     if(i > 0){
                         var lastLeg = this.tripLegs[(i - 1)];
+                        console.log(this.tripLegs[i].whenToTravel);
+                        _stayDuration = ((this.tripLegs[i].whenToTravel * 1440) + (this.tripLegs[i].beginTravel * 60)) - ((lastLeg.beginTravel * 60) + lastLeg.timeToGetThereInMin);
+
+                        console.log('between leg ' + lastLeg.id + ' and leg ' + this.tripLegs[i].id + ', duration:' + _stayDuration);
                     }
-                    _stayDuration = (this.tripLegs[i].beginTravel * 60) - (((lastLeg.beginTravel * 60) + lastLeg.timeToGetThereInMin) - (this.tripLegs[i].whenToTravel * 1440))
-                    console.log('between leg ' + lastLeg.id + ' and leg ' + this.tripLegs[i].id + ', duration:' + _stayDuration);
-                }
+
+                    
+
+                    //_stayDuration = (this.tripLegs[i].beginTravel * 60) - (((lastLeg.beginTravel * 60) + lastLeg.timeToGetThereInMin) - (this.tripLegs[i].whenToTravel * 1440))
+            
+                                    //}
 
                 // if(i < (this.tripLegs.length -1)){
                 //     //get the next leg's whenToTravel to work out the present legs duration of stay
                 //     _stayDuration = this.triplegs[(i + 1)].whenToTravel * 1440
                 // }
-                _totalMin = _totalMin + (this.tripLegs[i].beginTravel * 60) + this.tripLegs[i].timeToGetThereInMin + _stayDuration;
+
+                _totalMin = _totalMin + this.tripLegs[i].timeToGetThereInMin + _stayDuration;
+                if(i > 0){
+                    _totalMin += (this.tripLegs[i].beginTravel * 60);
+                }
             }
+            console.log("_totalMin: " + _totalMin);
             this.tripTotalMin = Math.ceil(_totalMin/(1440));
         }
     }
