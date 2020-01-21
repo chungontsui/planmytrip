@@ -7,21 +7,21 @@
     <title>Plan My Trip</title>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
     <link href="https://fonts.googleapis.com/css?family=Nanum+Pen+Script|Oleo+Script+Swash+Caps&display=swap" rel="stylesheet">
-    <link href="node_modules/@fortawesome/fontawesome-free/css/all.min.css" rel="stylesheet">
+    <link href="/all.min.d92a794a.css" rel="stylesheet">
     
     
-    <link href="main.css" type="stylesheet">
+    <link href="/main.af46ece4.css" type="stylesheet">
     <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
     
-    <script src="framework/jquery-3.3.1.min.js"></script>
+    <script src="/jquery-3.3.1.min.910c3eb7.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
-    <script src="framework/bootstrap.min.js"></script>
+    <script src="/bootstrap.min.3769df6f.js"></script>
     
-</head>
+<script src="/all.min.d92a794a.js"></script><script src="/main.af46ece4.js"></script></head>
 <body>
     <div class="container">
         <div class="py-5 text-center">
-            <span id='logo'>Plan My Trip</span>
+            <span id="logo">Plan My Trip</span>
         </div>
         <div class="row" id="app">
             <div class="col-1"></div>
@@ -29,11 +29,7 @@
                 {{tripTotalMin}}   
                 <button v-on:click="addLeg">Add Leg</button>
                 <ul>
-                    <todo-item v-on:data-change="calculateTotalTime()"
-                    v-for="i in tripLegs"
-                    v-bind:leg="i"
-                    v-bind:key="i.id"
-                    ></todo-item>
+                    <todo-item v-on:data-change="calculateTotalTime()" v-for="i in tripLegs" v-bind:leg="i" v-bind:key="i.id"></todo-item>
                 </ul>
             </div>
             <div class="col-1"></div>
@@ -47,7 +43,7 @@
             </ul>
         </footer>
     </div>
-    <script src="app.js"></script>
+    <script src="/app.c328ef1a.js"></script>
     
 </body>
 
