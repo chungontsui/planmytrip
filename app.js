@@ -20,7 +20,7 @@ Vue.component('todo-item', {
     <input type="text" class="form-control" v-model="leg.startingPoint" id="startingPoint" value="email@example.com">
     </div>
     <div class="form-group mx-sm-3 mb-2">
-    <input type="text" class="form-control" v-model="leg.destination" id="destination" placeholder="Password">
+    <input type="text" class="form-control" v-model="leg.destination" id="destination" placeholder="">
     </div>
     <div class="form-group mx-sm-3 mb-2">
     <input type="number" class="form-control" v-model="leg.timeToGetThereInMin" id="timeToGetThereInMin" placeholder="">
@@ -78,8 +78,10 @@ var app = new Vue({
     },
     methods: {
         addLeg: function(){
-            this.tripLegs.push(this.tripLegs.length + 1);
-            this.message = this.tripLegs[(this.tripLegs.length - 1)].startingPoint;
+            var newId = this.tripLegs[(this.tripLegs.length - 1)].id + 1;
+            var newLeg = {id: newId, whenToTravel:1, startingPoint: "", destination: "", timeToGetThereInMin: 0, beginTravel: 9, stayDurationAtDestInMin: 0};
+            this.tripLegs.push(newLeg);
+            //this.message = this.tripLegs[(this.tripLegs.length - 1)].startingPoint;
         },
         calculateTotalTime: function(){
             let _totalMin = 0;
@@ -94,7 +96,7 @@ var app = new Vue({
                     if(i > 0){
                         var lastLeg = this.tripLegs[(i - 1)];
                         console.log(this.tripLegs[i].whenToTravel);
-                        _stayDuration = ((this.tripLegs[i].whenToTravel * 1440) + (this.tripLegs[i].beginTravel * 60)) - ((lastLeg.beginTravel * 60) + lastLeg.timeToGetThereInMin);
+                        _stayDuration = ((parseInt(this.tripLegs[i].whenToTravel) * 1440) + (parseInt(this.tripLegs[i].beginTravel) * 60)) - ((parseInt(lastLeg.beginTravel) * 60) + parseInt(lastLeg.timeToGetThereInMin));
 
                         console.log('between leg ' + lastLeg.id + ' and leg ' + this.tripLegs[i].id + ', duration:' + _stayDuration);
                     }
