@@ -13,6 +13,6 @@ Colour Palette
 body{
     background-color: #fdffdc;
 }
-span#logo{
+span.logo{
     font-family: 'Nanum Pen Script', cursive;
 }

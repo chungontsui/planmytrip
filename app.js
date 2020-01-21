@@ -1,12 +1,12 @@
 Vue.component('todo-item', {
     props: ['leg'],
     template: `
-    <form class="form-inline">
+    <li><form class="form-inline">
     <div class="form-group mb-2">
     In&nbsp;
-    <select class='form-control' v-model='leg.whenToTravel' v-on:change="$emit('data-change')">
+    <select class='form-control' v-model='leg.whenToTravel' v-on:change="$emit('data-change')" v-if="leg.id !== 1">
     <option value='0'>Same day</option>
-    <option value='1'>Next day</option>
+    <option value='1'>Next day</option> 
     <option value='2'>1 day</option>
     <option value='3'>2 days</option>
     <option value='4'>3 days</option>
@@ -54,7 +54,7 @@ Vue.component('todo-item', {
     </select>
     </div>
     <button><i class="fas fa-camera"></i></button>
-    </form>
+    </form></li>
     `
     // ,
     // methods:{
