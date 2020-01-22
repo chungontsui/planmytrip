@@ -112,7 +112,7 @@ var app = new Vue({
                 //     _stayDuration = this.triplegs[(i + 1)].whenToTravel * 1440
                 // }
 
-                _totalMin = _totalMin + this.tripLegs[i].timeToGetThereInMin + _stayDuration;
+                _totalMin = parseInt(_totalMin) + parseInt(this.tripLegs[i].timeToGetThereInMin) + parseInt(_stayDuration);
                 if(i > 0){
                     _totalMin += (this.tripLegs[i].beginTravel * 60);
                 }
