@@ -19,21 +19,28 @@
     
 </head>
 <body>
-    <div class="container">
-        <div class="py-5 text-center">
+    <div class="container" id="app">
+        <div class="pb-5 text-center">
             <span class="logo" style="font-family: 'Nanum Pen Script', cursive;font-size: 6em;">Plan My Trip</span>
         </div>
-        <div class="row" id="app">
+        <div class="row">
             <div class="col-1"></div>
             <div class="col-10 col-sm-12">
-                {{tripTotalMin}}   
                 <button v-on:click="addLeg">Add Leg</button>
-
-                    <todo-item v-on:data-change="calculateTotalTime()"
-                    v-for="i in tripLegs"
-                    v-bind:leg="i"
-                    v-bind:key="i.id"
-                    ></todo-item>
+                <todo-item v-on:data-change="calculateTotalTime()"
+                v-for="i in tripLegs"
+                v-bind:leg="i"
+                v-bind:key="i.id"
+                ></todo-item>
+            </div>
+            <div class="col-1"></div>
+        </div>
+        <div class="row">
+            <div class="col-1"></div>
+            <div class="col-10 col-sm-12">
+                <div class="alert alert-success">
+                    <h1 class="display-6">Approximate <b>{{tripTotalMin}}</b> Days Total</h1>
+                </div>   
             </div>
             <div class="col-1"></div>
         </div>

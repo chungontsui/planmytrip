@@ -7,7 +7,7 @@ Vue.component('todo-item', {
     <div>
     <div class="row justify-content-md-center">
     <div class="col-md-3 col-sm-12 form-group">
-    <label for="">In</label>
+    <label for="" v-if="leg.id !== 1">In</label>
     <select class='form-control' v-model='leg.whenToTravel' v-on:change="$emit('data-change')" v-if="leg.id !== 1">
     <option value='0'>Same day</option>
     <option value='1'>Next day</option> 
@@ -30,7 +30,7 @@ Vue.component('todo-item', {
     <div class="row justify-content-md-center">
     <div class="col-md-3 col-sm-12 form-group">
     <label for="">Travel Time</label>
-    <input type="number" class="form-control" v-model="leg.timeToGetThereInMin" id="timeToGetThereInMin" placeholder="">
+    <input type="number" class="form-control" v-model="leg.timeToGetThereInMin" id="timeToGetThereInMin" placeholder="" step="30">
     </div>
     <div class="col-md-3 col-sm-12 form-group">
     <label for="">Leaving At</label>
@@ -130,6 +130,9 @@ var app = new Vue({
             console.log("_totalMin: " + _totalMin);
             this.tripTotalMin = Math.ceil(_totalMin/(1440));
         }
+    },
+    beforeMount(){
+        this.calculateTotalTime();
     }
 });
 
