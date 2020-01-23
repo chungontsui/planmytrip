@@ -1,9 +1,13 @@
+
+
+
 Vue.component('todo-item', {
     props: ['leg'],
     template: `
-    <li><form class="form-inline">
-    <div class="form-group mb-2">
-    In&nbsp;
+    <div>
+    <div class="row justify-content-md-center">
+    <div class="col-md-3 col-sm-12 form-group">
+    <label for="">In</label>
     <select class='form-control' v-model='leg.whenToTravel' v-on:change="$emit('data-change')" v-if="leg.id !== 1">
     <option value='0'>Same day</option>
     <option value='1'>Next day</option> 
@@ -13,19 +17,23 @@ Vue.component('todo-item', {
     <option value='5'>4 days</option>
     <option value='6'>5 days</option>
     </select>
-    &nbsp;
     </div>
-    <div class="form-group mb-2">
-    <label for="staticEmail2" class="sr-only">Email</label>
+    <div class="col-md-3 col-sm-12 form-group">
+    <label for="">Starting Point</label>
     <input type="text" class="form-control" v-model="leg.startingPoint" id="startingPoint" value="email@example.com">
     </div>
-    <div class="form-group mx-sm-3 mb-2">
+    <div class="col-md-3 col-sm-12 form-group">
+    <label for="">Destination</label>
     <input type="text" class="form-control" v-model="leg.destination" id="destination" placeholder="">
     </div>
-    <div class="form-group mx-sm-3 mb-2">
+    </div>
+    <div class="row justify-content-md-center">
+    <div class="col-md-3 col-sm-12 form-group">
+    <label for="">Travel Time</label>
     <input type="number" class="form-control" v-model="leg.timeToGetThereInMin" id="timeToGetThereInMin" placeholder="">
     </div>
-    <div class="form-group mx-sm-3 mb-2">
+    <div class="col-md-3 col-sm-12 form-group">
+    <label for="">Leaving At</label>
     <select class="form-control" v-model='leg.beginTravel' v-on:change="$emit('data-change')">
     <option value='1'>01:00</option>
     <option value='2'>02:00</option>
@@ -51,15 +59,17 @@ Vue.component('todo-item', {
     <option value='22'>22:00</option>
     <option value='23'>23:00</option>
     <option value='24'>24:00</option>
-    </select>
+    </select></div>
+    <div class="col-md-3 col-sm-12 form-group">
+    <button>Remove</button>
     </div>
-    <button><i class="fas fa-camera"></i></button>
-    </form></li>
+    </div>
+    </div>
     `
     // ,
     // methods:{
     //     calculateStayDuration: function(value){
-
+    
     //     }
     // }
 });
@@ -93,25 +103,25 @@ var app = new Vue({
             for(var i = 0; i < this.tripLegs.length; i++){
                 _stayDuration = 0;
                 //if(this.tripLegs[i].whenToTravel && this.tripLegs[i].whenToTravel !== undefined){
-                    if(i > 0){
-                        var lastLeg = this.tripLegs[(i - 1)];
-                        console.log(this.tripLegs[i].whenToTravel);
-                        _stayDuration = ((parseInt(this.tripLegs[i].whenToTravel) * 1440) + (parseInt(this.tripLegs[i].beginTravel) * 60)) - ((parseInt(lastLeg.beginTravel) * 60) + parseInt(lastLeg.timeToGetThereInMin));
-
-                        console.log('between leg ' + lastLeg.id + ' and leg ' + this.tripLegs[i].id + ', duration:' + _stayDuration);
-                    }
-
+                if(i > 0){
+                    var lastLeg = this.tripLegs[(i - 1)];
+                    console.log(this.tripLegs[i].whenToTravel);
+                    _stayDuration = ((parseInt(this.tripLegs[i].whenToTravel) * 1440) + (parseInt(this.tripLegs[i].beginTravel) * 60)) - ((parseInt(lastLeg.beginTravel) * 60) + parseInt(lastLeg.timeToGetThereInMin));
                     
-
-                    //_stayDuration = (this.tripLegs[i].beginTravel * 60) - (((lastLeg.beginTravel * 60) + lastLeg.timeToGetThereInMin) - (this.tripLegs[i].whenToTravel * 1440))
-            
-                                    //}
-
+                    console.log('between leg ' + lastLeg.id + ' and leg ' + this.tripLegs[i].id + ', duration:' + _stayDuration);
+                }
+                
+                
+                
+                //_stayDuration = (this.tripLegs[i].beginTravel * 60) - (((lastLeg.beginTravel * 60) + lastLeg.timeToGetThereInMin) - (this.tripLegs[i].whenToTravel * 1440))
+                
+                //}
+                
                 // if(i < (this.tripLegs.length -1)){
                 //     //get the next leg's whenToTravel to work out the present legs duration of stay
                 //     _stayDuration = this.triplegs[(i + 1)].whenToTravel * 1440
                 // }
-
+                
                 _totalMin = parseInt(_totalMin) + parseInt(this.tripLegs[i].timeToGetThereInMin) + parseInt(_stayDuration);
                 if(i > 0){
                     _totalMin += (this.tripLegs[i].beginTravel * 60);

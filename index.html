@@ -25,76 +25,15 @@
         </div>
         <div class="row" id="app">
             <div class="col-1"></div>
-            <div class="col-10">
+            <div class="col-10 col-sm-12">
                 {{tripTotalMin}}   
                 <button v-on:click="addLeg">Add Leg</button>
-                <ul>
-                    <li><form class="form-inline">
-                        <div class="form-group mb-2">
-                            In&nbsp;
-                            <select class='form-control  form-control-sm'>
-                                <option value='0'>Same day</option>
-                                <option value='1'>Next day</option>
-                                <option value='2'>1 day</option>
-                                <option value='3'>2 days</option>
-                                <option value='4'>3 days</option>
-                                <option value='5'>4 days</option>
-                                <option value='6'>5 days</option>
-                            </select>
-                            &nbsp;
-                        </div>
-                        <div class="form-group mb-2">
-                            <label for="startingPoint" class="sr-only" style="display:contents">going from</label>
-                            <input type="text" class="form-control form-control-sm" id="startingPoint" value="where?" style="margin-left: 5px;">
-                        </div>
-                        <div class="form-group mx-sm-3 mb-2">
-                            <label for="destination" class="sr-only" style="display:contents">to</label>
-                            <input type="text" class="form-control form-control-sm" id="destination" placeholder="to where?" style="margin-left: 5px;">
-                        </div>
-                        <div class="form-group mx-sm-1 mb-2">
-                            <label for="destination" class="sr-only" style="display:contents">takes</label>
-                            <input type="number" class="form-control form-control-sm" id="timeToGetThereInMin" step="30" min="0" style="width:60px; margin-left: 5px;">
-                            <div class="input-group-append" style="height: 31px;">
-                                <span class="input-group-text form-control-sm" id="basic-addon2">min</span>
-                            </div>
-                        </div> 
-                        <div class="form-group mx-sm-3 mb-2">
-                            <span>leaving at: </span>
-                            <select class="form-control form-control-sm">
-                                <option value='1'>01:00</option>
-                                <option value='2'>02:00</option>
-                                <option value='3'>03:00</option>
-                                <option value='4'>04:00</option>
-                                <option value='5'>05:00</option>
-                                <option value='6'>06:00</option>
-                                <option value='7'>07:00</option>
-                                <option value='8'>08:00</option>
-                                <option value='9'>09:00</option>
-                                <option value='10'>10:00</option>
-                                <option value='11'>11:00</option>
-                                <option value='12'>12:00</option>
-                                <option value='13'>13:00</option>
-                                <option value='14'>14:00</option>
-                                <option value='15'>15:00</option>
-                                <option value='16'>16:00</option>
-                                <option value='17'>17:00</option>
-                                <option value='18'>18:00</option>
-                                <option value='19'>19:00</option>
-                                <option value='20'>20:00</option>
-                                <option value='21'>21:00</option>
-                                <option value='22'>22:00</option>
-                                <option value='23'>23:00</option>
-                                <option value='24'>24:00</option>
-                            </select>
-                        </div>
-                        <button><i class="fas fa-camera"></i></button>
-                    </form></li>
+
                     <todo-item v-on:data-change="calculateTotalTime()"
                     v-for="i in tripLegs"
                     v-bind:leg="i"
                     v-bind:key="i.id"
                     ></todo-item>
-                </ul>
             </div>
             <div class="col-1"></div>
         </div>
