@@ -84,7 +84,8 @@ var app = new Vue({
             {id: 2, whenToTravel:1, startingPoint: "Dunedin", destination: "Queenstown", timeToGetThereInMin: 180, beginTravel: 9, stayDurationAtDestInMin: 720}, 
             {id: 3, whenToTravel:1, startingPoint: "Queenstown", destination: "Christchurch", timeToGetThereInMin: 300, beginTravel: 9, stayDurationAtDestInMin: 0}, 
         ],
-        tripTotalMin:0
+        tripTotalMin:0,
+        emailSent: false
     },
     methods: {
         addLeg: function(){
@@ -92,6 +93,22 @@ var app = new Vue({
             var newLeg = {id: newId, whenToTravel:1, startingPoint: "", destination: "", timeToGetThereInMin: 0, beginTravel: 9, stayDurationAtDestInMin: 0};
             this.tripLegs.push(newLeg);
             //this.message = this.tripLegs[(this.tripLegs.length - 1)].startingPoint;
+        },
+        sendEmail: function(){
+            var baseURL = document.location.hostname.indexOf("playmytrip") >= 0 ? "https://planmytripbackend.azurewebsites.net/":"http://localhost:7071/"
+            this.$http.post(baseURL + `api/SendEmail?name=Abigailhahaha`, 
+            this.tripLegs).then(response=>{
+                if(response == "sent"){
+                    //display a toast of some sort
+                    console.log("email sent");
+                }
+            }, response=>{
+                //error
+            });
+
+            // .then(json => {
+            //     this.articles = json.resultList.result;
+            // });
         },
         calculateTotalTime: function(){
             let _totalMin = 0;
@@ -110,17 +127,6 @@ var app = new Vue({
                     
                     console.log('between leg ' + lastLeg.id + ' and leg ' + this.tripLegs[i].id + ', duration:' + _stayDuration);
                 }
-                
-                
-                
-                //_stayDuration = (this.tripLegs[i].beginTravel * 60) - (((lastLeg.beginTravel * 60) + lastLeg.timeToGetThereInMin) - (this.tripLegs[i].whenToTravel * 1440))
-                
-                //}
-                
-                // if(i < (this.tripLegs.length -1)){
-                //     //get the next leg's whenToTravel to work out the present legs duration of stay
-                //     _stayDuration = this.triplegs[(i + 1)].whenToTravel * 1440
-                // }
                 
                 _totalMin = parseInt(_totalMin) + parseInt(this.tripLegs[i].timeToGetThereInMin) + parseInt(_stayDuration);
                 if(i > 0){
