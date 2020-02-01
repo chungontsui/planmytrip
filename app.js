@@ -4,7 +4,7 @@
 Vue.component('todo-item', {
     props: ['leg'],
     template: `
-    <div>
+    <div class="px-3" style="background-color: #ffffd8;">
     <div class="row justify-content-md-center">
     <div class="col-md-3 col-sm-12 form-group">
     <label for="" v-if="leg.id !== 1">In</label>
@@ -85,7 +85,8 @@ var app = new Vue({
             {id: 3, whenToTravel:1, startingPoint: "Queenstown", destination: "Christchurch", timeToGetThereInMin: 300, beginTravel: 9, stayDurationAtDestInMin: 0}, 
         ],
         tripTotalMin:0,
-        emailSent: false
+        emailSent: false,
+        email: ""
     },
     methods: {
         addLeg: function(){

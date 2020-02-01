@@ -5,12 +5,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Plan My Trip</title>
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-    <link href="https://fonts.googleapis.com/css?family=Nanum+Pen+Script|Oleo+Script+Swash+Caps&display=swap" rel="stylesheet">
     <link href="node_modules/@fortawesome/fontawesome-free/css/all.min.css" rel="stylesheet">
-    
-    
-    <link href="main.css" type="stylesheet">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link href="https://fonts.googleapis.com/css?family=Rubik&display=swap" rel="stylesheet">    
+    <link href="main.css" rel="stylesheet" type="text/css">
+
     <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/vue-resource@1.5.1"></script>
     
@@ -22,7 +21,7 @@
 <body>
     <div class="container" id="app">
         <div class="pb-5 text-center">
-            <span class="logo" style="font-family: 'Nanum Pen Script', cursive;font-size: 6em;">Plan My Trip</span>
+            <span class="logo">Plan My Trip</span>
         </div>
         <div class="row">
             <div class="col-1"></div>
@@ -43,21 +42,21 @@
                     <h1 class="display-6">Approximate <b>{{tripTotalMin}}</b> Days Total</h1>
                 </div>
                 <div class="row">
-                    <div class="col-4">
+                    <div class="col-md-4 col-sm-12 px-sm-auto my-md-auto pr-md-0 ">
                         <div class="form-check" style="float: right;">
                             <input class="form-check-input" type="checkbox" value="" id="receiveNewsletter">
                             <label class="form-check-label" for="receiveNewsletter">
-                              Receive News on hotest travel deals
+                              Get News on hottest travel deals
                             </label>
                           </div>
                     </div>
-                    <div class="col-4">
-                        <div class="form-group">
-                            <input type="email" placeholder="traveller@planmytrip.com" class="form-control form-control">
+                    <div class="col-md-4 col-sm-12">
+                        <div class="form-group my-md-auto">
+                            <input type="email" v-model="email" placeholder="traveller@planmytrip.com" class="form-control form-control">
                         </div>
                     </div>
-                    <div class="col-4">
-                        <button class="button" v-on:click="sendEmail()">Email Me Trip Details</button>
+                    <div class="col-md-4 col-sm-12 my-md-auto pl-0">
+                        <button class="btn btn-success" v-on:click="sendEmail()">Email Me Trip Details</button>
                     </div>
                 </div>
             </div>
