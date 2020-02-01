@@ -9,14 +9,20 @@ Colour Palette
 #bdf2d5  Light Green
 #f6f6f6  Light Grey
 
+Green Treeline: #478559
+Purple baseline: #161748
+Pink highlight: #f95d9b
+Bluewater lowlight: #39a0ca
+
 */
 body{
     /* background-color: #fdffdc;
     color: #3a3d7b; */
-    background-color: #3a3b50;
-    color:  #fdffdc;
+    background-color: #39a0ca;
+    color:  #478559;
 }
 span.logo{
     font-family: 'Rubik', sans-serif;
     font-size: 5em;
+    color:  #478559
 }

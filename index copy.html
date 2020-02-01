@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Plan My Trip</title>
+    <link href="node_modules/@fortawesome/fontawesome-free/css/all.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link href="https://fonts.googleapis.com/css?family=Rubik&display=swap" rel="stylesheet">
+    <link href="css/froala_blocks.css" rel="stylesheet" type="text/css">  
+    <!-- <link href="main.css" rel="stylesheet" type="text/css"> -->
+    
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vue-resource@1.5.1"></script>
+    
+    <script src="framework/jquery-3.3.1.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="framework/bootstrap.min.js"></script>
+    
+</head>
+<body>
+    <header>
+        <div class="container text-center">
+            <nav class="navbar">
+                <a class="ml-auto mr-auto" href="https://www.froala.com">
+                    <img src="./imgs/logo.png" height="30" alt="image">
+                </a>
+            </nav>
+        </div>
+    </header>
+    <section class="fdb-block py-0">
+        <div class="container py-5 my-5" style="background-image: url(imgs/shapes/10.svg);">
+            <div class="row justify-content-start">
+                <div class="col-12 col-md-6 col-lg-5 col-xl-4 text-left">
+                    <div class="fdb-box">
+                        <div class="row">
+                            <div class="col">
+                                <h1>+Trip Leg</h1>
+                                <p class="lead">add details of legs of the trip</p>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-5 mt-4">
+                                <input type="text" class="form-control" placeholder="From">
+                            </div>
+                            <div class=" mt-4">
+                                <i class="fas fa-chevron-right"></i>
+                            </div>
+                            <div class="col-5 mt-4">
+                                <input type="text" class="form-control" placeholder="To">
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-6 col-lg-12 mt-4">
+                                <div class="btn-group mr-2" role="group" aria-label="First group">
+                                    <button type="button" class="btn btn-secondary"><i class="fas fa-car"></i></button>
+                                    <button type="button" class="btn btn-secondary"><i class="fas fa-bus"></i></button>
+                                    <button type="button" class="btn btn-secondary"><i class="fas fa-plane"></i></button>
+                                </div>
+                            </div>
+                            <div class="col-6 col-lg-12 mt-4">
+                                <p class="h3">approx 3 hours</p>
+                            </div>
+                        </div>
+                        <div class="row mt-4">
+                            <div class="col">
+                                <button class="btn btn-secondary" type="button"><b>Add +</b></button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-12 col-md-6 col-lg-7 col-xl-8 text-left">
+                    <div class="fdb-box mb-2" style="padding: 1rem; line-height: 0.5em">
+                        <div class="row">
+                            <div class="col">
+                                <div class="row justify-content-right">
+                                    <div class="col">
+                                        <div class="btn-group mr-2" role="group" aria-label="First group">
+                                            <button type="button" class="btn btn-secondary"><i class="fas fa-pen"></i></button>
+                                            <button type="button" class="btn btn-secondary"><i class="fas fa-times"></i></button>
+                                        </div>  
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col">
+                                        <h2>Leg 1</h2>
+                                        <p class="lead">Chrischuch > Dunedin</p></div>
+                                        
+                                    </div>
+                                    
+                                </div>
+                            </div>
+                        </div>
+                        <div class="fdb-box mb-2" style="padding: 1rem; line-height: 0.5em">
+                            <div class="row">
+                                <div class="col">
+                                    <h2>Leg 1</h2>
+                                    <p class="lead">Chrischuch > Dunedin</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="fdb-box mb-2" style="padding: 1rem; line-height: 0.5em">
+                            <div class="row">
+                                <div class="col">
+                                    <h2>Leg 1</h2>
+                                    <p class="lead">Chrischuch > Dunedin</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    
+                </div>
+                
+            </div>
+        </section>
+        <footer class="fdb-block footer-large">
+            <div class="container">
+                <div class="row text-center">
+                    <div class="col">
+                        <h3>Company Name</h3>
+                        <p>70 Bowman St.<br>South Windsor, CT 06074</p>
+                        <p>USA</p>
+                        <p>+13 827 312 5002</p>
+                    </div>
+                </div>
+                
+                <div class="row mt-4">
+                    <div class="col text-center">
+                        <p class="lead">
+                            <a href="https://www.froala.com" class="mx-2"><i class="fab fa-twitter" aria-hidden="true"></i></a>
+                            <a href="https://www.froala.com" class="mx-2"><i class="fab fa-facebook" aria-hidden="true"></i></a>
+                            <a href="https://www.froala.com" class="mx-2"><i class="fab fa-instagram" aria-hidden="true"></i></a>
+                            <a href="https://www.froala.com" class="mx-2"><i class="fab fa-pinterest" aria-hidden="true"></i></a>
+                            <a href="https://www.froala.com" class="mx-2"><i class="fab fa-google" aria-hidden="true"></i></a>
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </footer>
+    </body>
+    
+    </html>
