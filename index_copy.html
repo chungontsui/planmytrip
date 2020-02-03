@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Plan My Trip</title>
-    <link href="node_modules/@fortawesome/fontawesome-free/css/all.min.css" rel="stylesheet">
+    <!-- <link href="node_modules/@fortawesome/fontawesome-free/css/all.min.css" rel="stylesheet"> -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
     <link href="https://fonts.googleapis.com/css?family=Rubik&display=swap" rel="stylesheet">
     <link href="css/froala_blocks.css" rel="stylesheet" type="text/css">  
@@ -17,6 +17,7 @@
     <script src="framework/jquery-3.3.1.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
     <script src="framework/bootstrap.min.js"></script>
+    <script src="https://kit.fontawesome.com/57dbe50791.js" crossorigin="anonymous"></script>
     
 </head>
 <body>
@@ -142,6 +143,9 @@
                 </div>
             </div>
         </footer>
+        <script src="https://maps.googleapis.com/maps/api/js?key=[API_KEY]&libraries=places&callback=initAutocomplete"
+        async defer></script>
+        <script src="index.js"></script>
     </body>
     
     </html>
